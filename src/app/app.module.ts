@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { HttpClientModule } from '@angular/common/http';
+import { MediaProvider } from './services/providers/media/media';
+import { DigitransitProvider } from './services/providers/digitransit/digitransit';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PhotoViewer
+    PhotoViewer,
+    MediaProvider,
+    MediaProvider,
+    MediaProvider,
+    DigitransitProvider
   ]
 })
 export class AppModule {}

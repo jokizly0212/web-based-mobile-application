@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Picker } from 'ionic-angular';
 
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { HttpClient } from '@angular/common/http';
 
 import { Pic } from '../../interfaces/pic';
+import { MediaProvider } from '../../app/services/providers/media/media';
 
 @Component({
   selector: 'page-home',
@@ -17,14 +18,18 @@ export class HomePage implements OnInit{
     public navCtrl: NavController,
     public photoViewer: PhotoViewer,
     public http: HttpClient,
+    private mediaProvider: MediaProvider
   ) {}
   viewImage(imageUrl: string) {
     this.photoViewer.show(imageUrl);
   }
   ngOnInit() {
-    this.http.get('http://media.mw.metropolia.fi/wbma/media/').subscribe((res: Pic[]) => {
+    this.mediaProvider.getAllMedia().subscribe((res: Pic[]) => {
       this.picArray = res;
-      console.log(res);
+      this.picArray.map(pic => {
+        pic.filename = pic.filename.slice(0, -4)+'-tn160.png';
+      });
+      console.log(this.picArray);
     });
   }
 }
