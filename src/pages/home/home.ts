@@ -29,7 +29,6 @@ export class HomePage implements OnInit{
       this.picArray.map(pic => {
         pic.filename = pic.filename.slice(0, -4)+'-tn160.png';
       });
-      console.log(this.picArray);
     });
   }
 }

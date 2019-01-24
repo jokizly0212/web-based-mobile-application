@@ -10,11 +10,17 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { HttpClientModule } from '@angular/common/http';
 import { MediaProvider } from './services/providers/media/media';
 import { DigitransitProvider } from './services/providers/digitransit/digitransit';
+import { MenuPage } from '../pages/menu/menu';
+import { LoginRegisterPage } from '../pages/login-register/login-register';
+import { LogoutPage } from '../pages/logout/logout';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    MenuPage,
+    LoginRegisterPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,10 @@ import { DigitransitProvider } from './services/providers/digitransit/digitransi
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    MenuPage,
+    LoginRegisterPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,
