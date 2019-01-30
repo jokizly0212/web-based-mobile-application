@@ -4,48 +4,51 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>Login Register</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content padding>
-  <form (ngSubmit)="login()">
+  <form [ngClass]="!registerClicked ? 'display' : 'hidden'" (ngSubmit)="login()">
+    <div class="aleup-logo">
+      <img src="../../assets/imgs/AleUp.png" alt="">
+    </div>
     <ion-item>
-      <ion-label color="primary" floating>Username</ion-label>
-      <ion-input type="text" name="username" [(ngModel)]="user.username"></ion-input>
+      <ion-label position="stacked"><ion-icon name="aleup-username"></ion-icon></ion-label>
+      <ion-input placeholder="Username" type="text" name="username" [(ngModel)]="user.username"></ion-input>
+      <div class="icon-input"></div>
     </ion-item>
   
     <ion-item>
-      <ion-label color="primary" floating>Password</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+      <ion-label position="stacked"><ion-icon name="aleup-lock"></ion-icon></ion-label>
+      <ion-input placeholder="Password" type="password" name="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
-    <div padding>
-      <button block type="submit" name="submit" ion-button color="primary">Login</button>
-    </div>
+    <button type="submit" name="submit" ion-button color="primary">Login</button>
   </form>
 
-  <h2 text-center>Register</h2>
-  <form (ngSubmit)="register()">
-      <ion-item>
-        <ion-label color="primary" floating>Username</ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="user.username"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label color="primary" floating>Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label color="primary" floating>Email</ion-label>
-        <ion-input type="email" name="email" [(ngModel)]="user.email"></ion-input>
-      </ion-item>
-      <div padding>
-        <button block type="submit" name="submit" ion-button color="primary">Register</button>
-      </div>
-    </form>
+  <form [ngClass]="registerClicked ? 'display' : 'hidden'" (ngSubmit)="register()">
+    <div class="aleup-logo">
+      <img src="../../assets/imgs/AleUp.png" alt="">
+    </div>
+    <ion-item>
+      <ion-label position="stacked"><ion-icon name="aleup-username"></ion-icon></ion-label>
+      <ion-input placeholder="Username" type="text" name="username" [(ngModel)]="user.username"></ion-input>
+      <div class="icon-input"></div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"><ion-icon name="aleup-lock"></ion-icon></ion-label>        
+      <ion-input placeholder="Password" type="password" name="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked"><ion-icon name="aleup-lock2"></ion-icon></ion-label>        
+      <ion-input placeholder="Confirm Password" type="email" name="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <button type="submit" name="submit" ion-button color="primary">Register</button>
+  </form>
+  <div [ngClass]="!registerClicked ? 'display' : 'hidden'" class="register-links">
+    <p>Not a member yet?</p>
+    <a (click)="onRegisterClick()">Register</a>
+  </div>
+  <div [ngClass]="registerClicked ? 'display' : 'hidden'" class="have-account">
+    <a (click)="onRegisterClick()">Already have an account</a>
+  </div>
 </ion-content>

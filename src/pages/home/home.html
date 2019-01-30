@@ -8,13 +8,26 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor = "let pic of picArray">
+    <ion-card *ngFor = "let pic of picArray">
+      <img [src]="url+ (pic.filename | thumbnail: 'big')"/>
+      <ion-card-content>
+        <ion-card-title>
+          {{pic.title}}
+          </ion-card-title>
+        <p>
+          {{pic.description}}
+        </p>
+        <p> {{pic.time_added | dateFormat }} </p>
+      </ion-card-content>
+    </ion-card>
+    <!-- <ion-item *ngFor = "let pic of picArray">
       <ion-thumbnail item-start>
-        <img [src]="url+pic.filename">
+        <img [src]="url+ (pic.filename | thumbnail: 'small')">
       </ion-thumbnail>
     <h2> {{pic.title}} </h2>
       <p> {{pic.description}} </p>
+      <p> {{pic.time_added | dateFormat}} </p>
       <button (click)="viewImage(pic.filename)" ion-button clear item-end>View</button>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 </ion-content>

@@ -13,6 +13,7 @@ import { DigitransitProvider } from './services/providers/digitransit/digitransi
 import { MenuPage } from '../pages/menu/menu';
 import { LoginRegisterPage } from '../pages/login-register/login-register';
 import { LogoutPage } from '../pages/logout/logout';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,13 @@ import { LogoutPage } from '../pages/logout/logout';
     HomePage,
     MenuPage,
     LoginRegisterPage,
-    LogoutPage
+    LogoutPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

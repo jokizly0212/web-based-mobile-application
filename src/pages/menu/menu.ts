@@ -18,7 +18,7 @@ import { MediaProvider } from '../../app/services/providers/media/media';
   <ion-tabs>
     <ion-tab [show]="!mediaProvider.loggedIn"[root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
     <ion-tab [show]="mediaProvider.loggedIn" [root]="tab2Root" tabTitle="Login" tabIcon="person"></ion-tab>
-    <ion-tab [show]="!mediaProvider.loggedIn"[root]="tab3Root" tabTitle="Logout" tabIcon="log-out"></ion-tab>
+    <ion-tab [show]="!mediaProvider.loggedIn"[root]="tab3Root" tabTitle="Profile" tabIcon="contact"></ion-tab>
   </ion-tabs>`
 })
 export class MenuPage {

@@ -7,12 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Logout</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <button ion-button block color="danger" (click)="logout()">Logout</button>
+  <ion-icon class="log-out-btn" name="aleup-logout" (click)="exitConfirm()"></ion-icon>
+  <!-- <ion-card>
+      <img [src]="mediaProvider.mediaFilePath + ('profile' | getTag | async| thumbnail:'large' | async)"/>
+  
+      <div class="card-title">
+        {{mediaProvider.user.username}}
+      </div>
+      <div class="card-subtitle">
+        {{ mediaProvider.user.full_name}}
+      </div>
+      <div class="card-subtitle">
+        {{ mediaProvider.user.email}}
+      </div>
+  
+    </ion-card> -->
+  
 </ion-content>

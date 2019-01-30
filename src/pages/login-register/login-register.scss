@@ -1,3 +1,89 @@
 page-login-register {
-
+    ion-content {
+        .fixed-content {
+            background: url('../../assets/imgs/login-bg.jpg');
+            @include bgimg;
+        }
+        .scroll-content {
+            form {
+                width: 90%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -70%);
+                text-align: center;
+                .aleup-logo {
+                    width: 50%;
+                    text-align: center;
+                    display: inline-block;
+                    margin-bottom: 50px;
+                }
+                ion-item.item-input {
+                    background: #fff;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                    height: 60px;
+                    font-size: 18px;
+                    color: $color-red;
+                    ::-webkit-input-placeholder {
+                        color: lighten($color: $color-red, $amount: 25);
+                    }
+                    ion-label {
+                        color: lighten($color: $color-red, $amount: 25);                        
+                    }
+                }
+                button {
+                    background-color: $color-red;
+                    font-weight: 600;
+                    width: 220px;
+                    height: 55px;
+                    font-size: $font-size-h4;
+                    margin-top: 35px;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    &:active, &:focus {
+                        background-color: darken($color: $color-red, $amount: 5);
+                    }
+                    box-shadow: none;
+                    text-transform: capitalize;
+                }
+                &.display {
+                    animation: slide-up .7s forwards;
+                }
+            }
+            .register-links, .have-account {
+                position: absolute;
+                bottom: 3%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                width: 100%;
+                p {
+                    color: #fff;
+                }
+                a {
+                    margin-top: 15px;
+                    font-weight: 600;
+                    color: $color-yellow;
+                    font-size: $font-size-h4;
+                    cursor: pointer;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .hidden {
+        opacity: 0!important;
+        visibility: hidden!important;
+    }
+    
+    .display {
+        opacity: 1!important;
+        visibility: visible!important;
+    }
 }
+
+/***** ANIMATIONS  ******/
+@include slide-up-animation(-30%, -70%);

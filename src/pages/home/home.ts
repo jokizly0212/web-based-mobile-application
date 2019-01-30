@@ -14,6 +14,7 @@ import { MediaProvider } from '../../app/services/providers/media/media';
 export class HomePage implements OnInit{
   url = 'http://media.mw.metropolia.fi/wbma/uploads/';
   picArray: Pic[] = [];
+  avatarUrl: Object;
   constructor(
     public navCtrl: NavController,
     public photoViewer: PhotoViewer,
@@ -26,9 +27,11 @@ export class HomePage implements OnInit{
   ngOnInit() {
     this.mediaProvider.getAllMedia().subscribe((res: Pic[]) => {
       this.picArray = res;
-      this.picArray.map(pic => {
-        pic.filename = pic.filename.slice(0, -4)+'-tn160.png';
-      });
     });
+    // this.mediaProvider.getUserAvatar(localStorage.getItem('token')).subscribe(res => {
+    //   this.avatarUrl = res;
+    //   console.log(localStorage.getItem('token'));
+    //   console.log(this.avatarUrl);
+    // })
   }
 }

@@ -3,7 +3,7 @@ export interface User {
     password: String,
     email?: String,
     fullName?: String,
-    userId?: number,
+    user_id?: number,
     dateCreated?: Date
 }
 export interface loginResponse {

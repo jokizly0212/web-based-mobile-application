@@ -1,16 +1,86 @@
-// http://ionicframework.com/docs/theming/
+//GLOBAL VARIABLES GO HERE
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+//*****Global fonts go here
+
+$font-sizes: (
+    h1: 40px,
+    h2: 30px,
+    h3: 22px,
+    h4: 16px,
+    text: 14px, 
+);
+$font-size-h1: 40px;
+$font-size-h2: 30px;
+$font-size-h3: 22px;
+$font-size-h4: 20px;
+$font-size-h5: 16px;
+$font-size-text: 14px;
+
+
+
+//*****Global colors go here
+$color-red: #C12626;
+$color-orange: #F0916E;
+$color-light-grey: #F9F9FB;
+$color-purple: #414464;
+$color-yellow: #F9DF74;
+
+
+//*****Border radiuses
+$border-radius-card: 10px;
+$border-radius-default: 5px;
+
+//*****Custom icons
+
+ion-icon {
+    &[class*="aleup-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1.5em;
+        height: 1.5em;
+    }
+    // custom icons
+    &[class*="aleup-username"] {
+        mask-image: url('../assets/icon/person.svg');
+    }
+    &[class*="aleup-lock"] {
+        mask-image: url('../assets/icon/lock.svg');
+    }
+    &[class*="aleup-lock2"] {
+        mask-image: url('../assets/icon/lock2.svg');
+    }
+    &[class*="aleup-logout"] {
+        mask-image: url('../assets/icon/logout.svg');
+    }
+}
+
+//*****background image
+@mixin bgimg($size: cover, $position: center, $repeat: no-repeat) {
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}
+
+
+//*****animations
+@mixin slide-up-animation($transform-top-0: -50%, $transform-top-100: -70%) {
+    @keyframes slide-up {
+        0% {
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, $transform-top-0);
+        }
+        100% {
+            opacity: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, $transform-top-100);
+        }
+    }
+}

@@ -18,12 +18,37 @@ import { HomePage } from '../home/home';
 })
 export class LoginRegisterPage {
   user: User = {username: null, password: null};
+  registerClicked: boolean = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams, 
     private mediaProvider: MediaProvider,
     public alertCtrl: AlertController
+    
     ) {
+  }
+  ionViewWillEnter() {
+    let token = localStorage.getItem('token');
+    if(token) {
+      this.navCtrl.setRoot(HomePage);
+    }
+    this.mediaProvider.loggedIn = false;
+  }
+  ionViewDidEnter() {
+    let tabs = document.querySelectorAll('.show-tabbar');
+    if (tabs !== null) {
+        Object.keys(tabs).map((key) => {
+            tabs[key].style.display = 'none';
+        });
+    }
+  } 
+  ionViewWillLeave() {
+    let tabs = document.querySelectorAll('.show-tabbar');
+    if (tabs !== null) {
+        Object.keys(tabs).map((key) => {
+            tabs[key].style.display = 'flex';
+        });
+    }
   }
   login() {
     this.mediaProvider.login(this.user).subscribe(
@@ -59,4 +84,8 @@ export class LoginRegisterPage {
       }
     })
   }
+  onRegisterClick() {
+    this.registerClicked = !this.registerClicked;
+  }
+  
 }
